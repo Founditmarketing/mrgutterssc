@@ -15,7 +15,7 @@ export default function Footer() {
           {/* Column 1: Brand & About */}
           <div>
             <div className="mb-6">
-              <img src="/newmrgutterslogo.png" alt="Mr Gutter SC" className="h-16 w-auto brightness-0 invert" />
+              <Link to="/"><img src="/newmrgutterslogo.png" alt="Mr Gutter SC" className="h-16 w-auto brightness-0 invert" /></Link>
             </div>
             <p className="text-gray-400 mb-6 leading-relaxed">
               South Carolina's most trusted choice for professional gutter cleaning, rapid repairs, and premium guard installations. Protecting your home, guaranteed.

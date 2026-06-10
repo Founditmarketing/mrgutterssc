@@ -244,7 +244,7 @@ export default function Navbar() {
         >
           {/* Panel header */}
           <div className="flex items-center justify-between px-6 py-5 border-b border-white/10">
-            <img src="/newmrgutterslogo.png" alt="Mr Gutter SC" className="h-10 w-auto brightness-0 invert" />
+            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}><img src="/newmrgutterslogo.png" alt="Mr Gutter SC" className="h-10 w-auto brightness-0 invert" /></Link>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
               className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
