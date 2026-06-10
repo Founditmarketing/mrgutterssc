@@ -1,4 +1,5 @@
 import { Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const DROPS = Array.from({ length: 25 }, (_, i) => ({
   left: (i * 4.1) % 100,
@@ -35,9 +36,9 @@ export default function PreFooter() {
          </p>
 
          <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-            <button className="w-full sm:w-auto bg-primary text-white font-black py-4 px-10 rounded btn-effect hover:bg-white hover:text-primary uppercase tracking-widest text-lg border-2 border-primary">
+            <Link to="/contact" className="w-full sm:w-auto bg-primary text-white font-black py-4 px-10 rounded btn-effect hover:bg-white hover:text-primary uppercase tracking-widest text-lg border-2 border-primary text-center">
               Get Your Free Quote
-            </button>
+            </Link>
             <span className="text-primary font-black">OR</span>
             <a href="tel:8033608890" className="w-full sm:w-auto flex items-center justify-center bg-white text-primary font-black py-4 px-10 rounded btn-effect hover:bg-transparent hover:text-primary uppercase tracking-widest text-lg border-2 border-white">
               <Phone size={20} className="mr-2" />

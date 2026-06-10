@@ -94,19 +94,18 @@ export default function ServicesCarousel() {
       {/* Background Section Title (Faint Watermark) */}
       <h2 className="absolute bottom-[-0.2em] left-0 text-[18vw] md:text-[150px] lg:text-[180px] font-black text-primary opacity-[0.05] select-none leading-none pointer-events-none whitespace-nowrap">SERVICES</h2>
 
+      {/* Section Header — constrained */}
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
-        
-        {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-12">
           <div className="max-w-2xl">
             <span className="text-accent font-black tracking-widest uppercase text-xs mb-2 block">What We Do</span>
             <h2 className="text-4xl md:text-5xl font-black text-primary tracking-tight">Our Premium Services</h2>
             <p className="text-gray-600 mt-4 text-lg">We offer a complete suite of exterior water management solutions designed to protect your home from water damage.</p>
           </div>
-          
+
           <div className="flex space-x-2 mt-6 md:mt-0">
-             <button 
-              onClick={scrollPrev} 
+             <button
+              onClick={scrollPrev}
               disabled={!prevBtnEnabled}
               className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all ${
                 prevBtnEnabled ? 'border-primary text-primary hover:bg-primary hover:text-white cursor-pointer' : 'border-gray-200 text-gray-300 cursor-not-allowed'
@@ -115,8 +114,8 @@ export default function ServicesCarousel() {
              >
                <ChevronLeft size={24} />
              </button>
-             <button 
-              onClick={scrollNext} 
+             <button
+              onClick={scrollNext}
               disabled={!nextBtnEnabled}
               className={`w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all ${
                 nextBtnEnabled ? 'border-primary text-primary hover:bg-primary hover:text-white cursor-pointer' : 'border-gray-200 text-gray-300 cursor-not-allowed'
@@ -127,16 +126,21 @@ export default function ServicesCarousel() {
              </button>
           </div>
         </div>
+      </div>
 
-        {/* Embla Carousel Viewport */}
-        <div className="overflow-hidden p-2 -m-2" ref={emblaRef}>
+      {/* Embla Carousel — left edge aligned to container, extends to right viewport edge */}
+      <div
+        className="relative z-10"
+        style={{ paddingLeft: 'max(1rem, calc((100vw - 1280px) / 2 + 1rem))' }}
+      >
+        <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex -ml-4">
             {services.map((service, index) => (
-              <div key={index} className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4">
-                
+              <div key={index} className="flex-[0_0_85%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_28.571%] pl-4">
+
                 {/* Service Card */}
                 <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:translate-y-[-5px] hover:shadow-xl transition-all duration-300 group h-full flex flex-col">
-                  
+
                   {/* Image Container with overlay */}
                   <div className="relative h-64 overflow-hidden">
                     <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -148,13 +152,13 @@ export default function ServicesCarousel() {
                        <h3 className="text-2xl font-bold">{service.title}</h3>
                     </div>
                   </div>
-                  
+
                   {/* Card Content */}
                   <div className="p-6 flex-grow flex flex-col justify-between bg-white relative">
                     <p className="text-gray-600 mb-6 leading-relaxed">
                       {service.description}
                     </p>
-                    
+
                     <Link to={service.path} className="inline-flex items-center font-bold text-xs uppercase tracking-widest text-primary hover:text-accent transition-colors group/btn">
                       Learn More
                       <ArrowRight size={14} className="ml-2 transform group-hover/btn:translate-x-1 transition-transform" />
@@ -166,15 +170,15 @@ export default function ServicesCarousel() {
             ))}
           </div>
         </div>
-
-        {/* Global CTA below carousel */}
-        <div className="mt-16 text-center">
-           <button className="bg-accent text-primary px-6 py-3 font-black text-sm uppercase rounded btn-effect">
-             View All Services
-           </button>
-        </div>
-
       </div>
+
+      {/* Global CTA below carousel */}
+      <div className="container mx-auto px-4 max-w-7xl relative z-10 mt-16 text-center">
+        <Link to="/services" className="inline-block bg-accent text-primary px-6 py-3 font-black text-sm uppercase rounded btn-effect">
+          View All Services
+        </Link>
+      </div>
+
     </section>
   );
 }

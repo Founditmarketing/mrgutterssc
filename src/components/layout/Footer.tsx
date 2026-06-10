@@ -38,7 +38,7 @@ export default function Footer() {
               <li><Link to="/services/cleaning" className="text-gray-400 hover:text-accent transition-colors">Gutter Cleaning</Link></li>
               <li><Link to="/services/repair" className="text-gray-400 hover:text-accent transition-colors">Gutter Repair</Link></li>
               <li><Link to="/services/guards" className="text-gray-400 hover:text-accent transition-colors">Gutter Guards</Link></li>
-              <li><Link to="/location" className="text-gray-400 hover:text-accent transition-colors">Areas We Serve</Link></li>
+              <li><Link to="/service-areas" className="text-gray-400 hover:text-accent transition-colors">Areas We Serve</Link></li>
               <li><Link to="/gallery" className="text-gray-400 hover:text-accent transition-colors">Gallery</Link></li>
             </ul>
           </div>
@@ -98,8 +98,8 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Mr Gutter SC. All rights reserved.
           </p>
           <div className="flex space-x-6 text-sm">
-            <Link to="/privacy" className="text-gray-500 hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="text-gray-500 hover:text-white transition-colors">Terms of Service</Link>
+            <Link to="/contact" className="text-gray-500 hover:text-white transition-colors">Contact Us</Link>
+            <Link to="/about" className="text-gray-500 hover:text-white transition-colors">About Us</Link>
           </div>
         </div>
       </div>

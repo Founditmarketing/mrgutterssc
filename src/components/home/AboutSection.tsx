@@ -1,4 +1,5 @@
 import { CheckCircle2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function AboutSection() {
   return (
@@ -65,9 +66,9 @@ export default function AboutSection() {
                </div>
             </div>
 
-            <button className="bg-primary text-white border border-primary px-6 py-3 font-black text-sm uppercase rounded btn-effect hover:bg-white hover:text-primary">
+            <Link to="/about" className="inline-block bg-primary text-white border border-primary px-6 py-3 font-black text-sm uppercase rounded btn-effect hover:bg-white hover:text-primary">
               Learn More About Us
-            </button>
+            </Link>
           </div>
 
         </div>

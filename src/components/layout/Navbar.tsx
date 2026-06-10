@@ -1,5 +1,5 @@
-import { Phone, ChevronDown, Menu, X, MapPin, Mail, Facebook, Instagram } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { Phone, ChevronDown, Menu, X, MapPin, Mail, Facebook, Instagram, ArrowRight, HardHat, Shield, Droplets, Wrench, Home as HomeIcon, Building2, Layers, Lightbulb } from 'lucide-react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const promoMessages = [
@@ -11,23 +11,38 @@ const promoMessages = [
 ];
 
 const services = [
-  { label: 'Gutter Installation', path: '/services/installation' },
-  { label: 'Gutter Guard Installation', path: '/services/guards' },
-  { label: 'Gutter Cleaning', path: '/services/cleaning' },
-  { label: 'Gutter Maintenance & Repair', path: '/services/repair' },
-  { label: 'Seamless Gutters', path: '/services/seamless' },
-  { label: 'Commercial Gutters', path: '/services/commercial' },
-  { label: 'Fascia & Soffit', path: '/services/fascia-soffit' },
-  { label: 'Christmas Lighting', path: '/services/christmas-lighting' },
+  { label: 'Gutter Installation',        path: '/services/installation',     icon: HardHat,   image: '/mrgutters-gutters5.jpg',        desc: 'Custom seamless systems built for your home.' },
+  { label: 'Gutter Guard Installation',  path: '/services/guards',           icon: Shield,    image: '/mrgutters-gutters3.jpg',        desc: 'Never clean your gutters again.' },
+  { label: 'Gutter Cleaning',            path: '/services/cleaning',         icon: Droplets,  image: '/mrgutters-gutters1.jpg',        desc: 'Full debris removal & downspout flush.' },
+  { label: 'Gutter Maintenance & Repair',path: '/services/repair',           icon: Wrench,    image: '/mrgutters-gutters2.jpg',        desc: 'Fix leaks, sagging, and loose joints.' },
+  { label: 'Seamless Gutters',           path: '/services/seamless',         icon: HomeIcon,  image: '/mrgutters-gutters4.jpg',        desc: 'No seams, no leaks — the gold standard.' },
+  { label: 'Commercial Gutters',         path: '/services/commercial',       icon: Building2, image: '/mrgutters-brickhouse.jpg',      desc: 'Heavy-duty systems for commercial properties.' },
+  { label: 'Fascia & Soffit',            path: '/services/fascia-soffit',    icon: Layers,    image: '/mrgutters-gutters6.jpg',        desc: 'Protect the structure behind your gutters.' },
+  { label: 'Christmas Lighting',         path: '/services/christmas-lighting',icon: Lightbulb, image: '/christmaslights.png',          desc: 'Professional holiday lighting installation.' },
 ];
 
 const serviceAreas = [
-  { label: 'Columbia, SC', path: '/service-areas/columbia' },
-  { label: 'Lexington, SC', path: '/service-areas/lexington' },
-  { label: 'Irmo, SC', path: '/service-areas/irmo' },
-  { label: 'Chapin, SC', path: '/service-areas/chapin' },
-  { label: 'Blythewood, SC', path: '/service-areas/blythewood' },
-  { label: 'Elgin, SC', path: '/service-areas/elgin' },
+  { label: 'Columbia, SC',          path: '/service-areas/columbia' },
+  { label: 'Lexington, SC',         path: '/service-areas/lexington' },
+  { label: 'Irmo, SC',              path: '/service-areas/irmo' },
+  { label: 'Cayce, SC',             path: '/service-areas/cayce' },
+  { label: 'West Columbia, SC',     path: '/service-areas/west-columbia' },
+  { label: 'Forest Acres, SC',      path: '/service-areas/forest-acres' },
+  { label: 'Blythewood, SC',        path: '/service-areas/blythewood' },
+  { label: 'Camden, SC',            path: '/service-areas/camden' },
+  { label: 'Lugoff, SC',            path: '/service-areas/lugoff' },
+  { label: 'Elgin, SC',             path: '/service-areas/elgin' },
+  { label: 'Newberry, SC',          path: '/service-areas/newberry' },
+  { label: 'Prosperity, SC',        path: '/service-areas/prosperity' },
+  { label: 'Winnsboro, SC',         path: '/service-areas/winnsboro' },
+  { label: 'Sumter, SC',            path: '/service-areas/sumter' },
+  { label: 'Orangeburg, SC',        path: '/service-areas/orangeburg' },
+  { label: 'Saint Matthews, SC',    path: '/service-areas/saint-matthews' },
+  { label: 'Swansea, SC',           path: '/service-areas/swansea' },
+  { label: 'Gaston, SC',            path: '/service-areas/gaston' },
+  { label: 'Pelion, SC',            path: '/service-areas/pelion' },
+  { label: 'Batesburg-Leesville, SC', path: '/service-areas/batesburg-leesville' },
+  { label: 'Saluda, SC',            path: '/service-areas/saluda' },
 ];
 
 export default function Navbar() {
@@ -36,6 +51,11 @@ export default function Navbar() {
   const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
   const [promoIndex, setPromoIndex] = useState(0);
   const [promoVisible, setPromoVisible] = useState(true);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout>>();
+
+  const openServices  = () => { clearTimeout(closeTimer.current); setServicesOpen(true); };
+  const delayClose    = () => { closeTimer.current = setTimeout(() => setServicesOpen(false), 120); };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -49,7 +69,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="w-full relative z-50">
+    <header className="w-full sticky top-0 z-50">
       {/* Top Bar */}
       <div className="bg-primary text-white text-[11px] py-2 hidden md:block">
         <div className="w-full grid grid-cols-3 items-center px-8">
@@ -100,30 +120,23 @@ export default function Navbar() {
               <Link to="/" className="hover:text-accent transition-colors py-4">Home</Link>
               <Link to="/about" className="hover:text-accent transition-colors py-4">About Us</Link>
 
-              {/* Services Dropdown */}
-              <div className="relative group">
-                <button className="flex items-center gap-1 hover:text-accent transition-colors py-4">
+              {/* Services Mega Menu Trigger */}
+              <div onMouseEnter={openServices} onMouseLeave={delayClose}>
+                <Link to="/services" className="flex items-center gap-1 hover:text-accent transition-colors py-4">
                   <span>Our Services</span>
-                  <ChevronDown size={14} className="text-accent" />
-                </button>
-                <div className="absolute top-full left-0 w-56 bg-white shadow-xl rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top -translate-y-1 group-hover:translate-y-0 flex flex-col overflow-hidden border-t-4 border-accent">
-                  {services.map((s) => (
-                    <Link key={s.path} to={s.path} className="px-5 py-2.5 hover:bg-gray-50 text-gray-700 hover:text-primary transition-colors font-medium text-[12px] border-b border-gray-100 last:border-0 normal-case tracking-normal">
-                      {s.label}
-                    </Link>
-                  ))}
-                </div>
+                  <ChevronDown size={14} className={`text-accent transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
+                </Link>
               </div>
 
               {/* Service Areas Dropdown */}
               <div className="relative group">
-                <button className="flex items-center gap-1 hover:text-accent transition-colors py-4">
+                <Link to="/service-areas" className="flex items-center gap-1 hover:text-accent transition-colors py-4">
                   <span>Service Areas</span>
                   <ChevronDown size={14} className="text-accent" />
-                </button>
-                <div className="absolute top-full left-0 w-48 bg-white shadow-xl rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top -translate-y-1 group-hover:translate-y-0 flex flex-col overflow-hidden border-t-4 border-accent">
+                </Link>
+                <div className="absolute top-full left-0 w-[420px] bg-white shadow-xl rounded-b-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top -translate-y-1 group-hover:translate-y-0 overflow-hidden border-t-4 border-accent grid grid-cols-2">
                   {serviceAreas.map((a) => (
-                    <Link key={a.path} to={a.path} className="px-5 py-2.5 hover:bg-gray-50 text-gray-700 hover:text-primary transition-colors font-medium text-[12px] border-b border-gray-100 last:border-0 normal-case tracking-normal">
+                    <Link key={a.path} to={a.path} className="px-5 py-2.5 hover:bg-gray-50 text-gray-700 hover:text-primary transition-colors font-medium text-[12px] border-b border-gray-100 normal-case tracking-normal">
                       {a.label}
                     </Link>
                   ))}
@@ -137,9 +150,9 @@ export default function Navbar() {
 
             {/* Desktop CTA */}
             <div className="hidden lg:flex shrink-0">
-              <button className="bg-accent text-primary px-5 py-3 font-black text-sm uppercase rounded btn-effect whitespace-nowrap">
+              <Link to="/contact" className="bg-accent text-primary px-5 py-3 font-black text-sm uppercase rounded btn-effect whitespace-nowrap">
                 Get a Free Quote
-              </button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -160,6 +173,63 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+
+        {/* Services Mega Menu Panel */}
+        {servicesOpen && (
+          <div
+            className="absolute top-full left-0 w-full bg-white shadow-2xl border-t-4 border-accent z-50"
+            onMouseEnter={openServices}
+            onMouseLeave={delayClose}
+          >
+            <div className="flex">
+              {/* Left sidebar */}
+              <div className="bg-primary text-white w-72 shrink-0 p-8 flex flex-col justify-between">
+                <div>
+                  <span className="text-accent font-black text-xs uppercase tracking-widest block mb-3">What We Offer</span>
+                  <h3 className="text-2xl font-black leading-tight mb-4">Complete Gutter Solutions</h3>
+                  <p className="text-white/70 text-sm leading-relaxed">From installation to maintenance, we handle every aspect of your gutter system with expert care.</p>
+                </div>
+                <div className="mt-8 flex flex-col gap-4">
+                  <Link
+                    to="/services"
+                    onClick={() => setServicesOpen(false)}
+                    className="flex items-center justify-center gap-2 bg-accent text-primary font-black text-xs uppercase tracking-widest px-4 py-3 rounded btn-effect"
+                  >
+                    View All Services <ArrowRight size={14} />
+                  </Link>
+                  <a href="tel:8033608890" className="flex items-center gap-2 text-white/70 hover:text-accent transition-colors text-sm font-bold">
+                    <Phone size={14} className="text-accent" />
+                    (803) 360-8890
+                  </a>
+                </div>
+              </div>
+
+              {/* Services grid — 4 columns × 2 rows */}
+              <div className="flex-1 p-6 grid grid-cols-4 gap-3">
+                {services.map((s) => (
+                  <Link
+                    key={s.path}
+                    to={s.path}
+                    onClick={() => setServicesOpen(false)}
+                    className="group flex flex-col rounded-lg overflow-hidden border border-gray-100 hover:border-accent hover:shadow-md transition-all duration-200"
+                  >
+                    <div className="relative h-28 overflow-hidden bg-gray-100">
+                      <img src={s.image} alt={s.label} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/20 transition-colors" />
+                      <div className="absolute bottom-2 left-2 bg-accent/90 rounded p-1">
+                        <s.icon size={16} className="text-primary" />
+                      </div>
+                    </div>
+                    <div className="p-3">
+                      <p className="font-bold text-primary text-[15px] leading-tight mb-1 normal-case tracking-normal">{s.label}</p>
+                      <p className="text-gray-500 text-[11px] leading-snug normal-case tracking-normal">{s.desc}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Mobile Slide-out Menu — Portal-style full screen */}
         {/* Backdrop */}

@@ -9,6 +9,14 @@ import Footer from './components/layout/Footer';
 import FAB from './components/layout/FAB';
 import Home from './pages/Home';
 import ServicePage from './pages/ServicePage';
+import ContactPage from './pages/ContactPage';
+import AboutPage from './pages/AboutPage';
+import ServiceAreaPage from './pages/ServiceAreaPage';
+import ServicesIndexPage from './pages/ServicesIndexPage';
+import ServiceAreasIndexPage from './pages/ServiceAreasIndexPage';
+import GalleryPage from './pages/GalleryPage';
+import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 import LoadingScreen from './components/layout/LoadingScreen';
 import { useState, useCallback } from 'react';
 
@@ -38,7 +46,15 @@ export default function App() {
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/services" element={<ServicesIndexPage />} />
               <Route path="/services/:id" element={<ServicePage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/service-areas" element={<ServiceAreasIndexPage />} />
+              <Route path="/service-areas/:city" element={<ServiceAreaPage />} />
+              <Route path="/gallery" element={<GalleryPage />} />
+              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/blog/:slug" element={<BlogPostPage />} />
             </Routes>
           </main>
           <Footer />

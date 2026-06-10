@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 
 const rotatingWords = ['Professionals.', 'Specialists.', 'Experts.'];
 
@@ -95,9 +96,9 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-            <button className="bg-accent text-primary px-6 py-3 font-black text-sm uppercase rounded btn-effect text-center">
+            <Link to="/contact" className="bg-accent text-primary px-6 py-3 font-black text-sm uppercase rounded btn-effect text-center">
               Book Cleaning Now
-            </button>
+            </Link>
             <a href="tel:8033608890" className="px-6 py-3 bg-transparent text-white font-black text-sm uppercase rounded border border-white hover:bg-white/10 transition-all text-center">
               Call (803) 360-8890
             </a>

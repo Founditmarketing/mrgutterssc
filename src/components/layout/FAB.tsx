@@ -1,20 +1,28 @@
 import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Phone, MessageSquare, X, Mail } from 'lucide-react';
 
 export default function FAB() {
   const [isVisible, setIsVisible] = useState(false);
   const [isSlideOutOpen, setIsSlideOutOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isHome = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
       const footer = document.querySelector('footer');
       const nearFooter = footer ? window.scrollY + window.innerHeight >= footer.offsetTop - 40 : false;
-      setIsVisible(window.scrollY > 300 && !nearFooter);
+      if (isHome) {
+        setIsVisible(window.scrollY > 300 && !nearFooter);
+      } else {
+        setIsVisible(!nearFooter);
+      }
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isHome]);
 
   return (
     <>

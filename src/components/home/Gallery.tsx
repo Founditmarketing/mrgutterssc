@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { X, ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
 
 const images = [
@@ -59,9 +60,9 @@ export default function Gallery() {
         </div>
 
         <div className="mt-12 text-center">
-          <button className="bg-white text-primary border border-gray-200 px-6 py-3 font-black text-sm uppercase rounded btn-effect hover:border-primary">
+          <Link to="/gallery" className="inline-block bg-white text-primary border border-gray-200 px-6 py-3 font-black text-sm uppercase rounded btn-effect hover:border-primary">
             View Full Gallery
-          </button>
+          </Link>
         </div>
       </div>
 
