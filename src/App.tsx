@@ -17,6 +17,7 @@ import ServiceAreasIndexPage from './pages/ServiceAreasIndexPage';
 import GalleryPage from './pages/GalleryPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
+import ReviewsPage from './pages/ReviewsPage';
 import LoadingScreen from './components/layout/LoadingScreen';
 import { useState, useCallback, useEffect } from 'react';
 
@@ -62,6 +63,7 @@ export default function App() {
               <Route path="/gallery" element={<GalleryPage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:slug" element={<BlogPostPage />} />
+              <Route path="/reviews" element={<ReviewsPage />} />
             </Routes>
           </main>
           <Footer />

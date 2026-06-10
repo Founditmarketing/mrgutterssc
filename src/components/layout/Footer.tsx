@@ -40,6 +40,7 @@ export default function Footer() {
               <li><Link to="/services/guards" className="text-gray-400 hover:text-accent transition-colors">Gutter Guards</Link></li>
               <li><Link to="/service-areas" className="text-gray-400 hover:text-accent transition-colors">Areas We Serve</Link></li>
               <li><Link to="/gallery" className="text-gray-400 hover:text-accent transition-colors">Gallery</Link></li>
+              <li><Link to="/reviews" className="text-gray-400 hover:text-accent transition-colors">Reviews</Link></li>
             </ul>
           </div>
 

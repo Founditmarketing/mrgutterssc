@@ -1,4 +1,5 @@
-import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram, Star, ExternalLink } from 'lucide-react';
+import { reviews } from '../data/reviewsData';
 
 export default function ContactPage() {
   return (
@@ -170,6 +171,43 @@ export default function ContactPage() {
                   <a href="https://www.instagram.com/mrguttersc/" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent hover:text-primary transition-colors">
                     <Instagram size={16} />
                   </a>
+                </div>
+              </div>
+
+              {/* Reviews Widget */}
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <div className="flex gap-0.5">
+                        {Array.from({ length: 5 }).map((_, i) => <Star key={i} size={16} className="text-yellow-400 fill-yellow-400" />)}
+                      </div>
+                      <span className="font-black text-primary text-lg">5.0</span>
+                    </div>
+                    <p className="text-gray-500 text-xs font-semibold mt-0.5">Based on 76 Google reviews</p>
+                  </div>
+                  <a href="https://www.google.com/maps/place/Mr+Gutter+SC" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-xs font-bold text-primary hover:text-accent transition-colors uppercase tracking-widest">
+                    See all <ExternalLink size={12} />
+                  </a>
+                </div>
+                <div className="flex flex-col gap-4">
+                  {reviews.slice(0, 3).map((review, i) => (
+                    <div key={i} className="bg-white rounded-xl p-5 border border-gray-100 shadow-sm">
+                      <div className="flex items-start gap-3 mb-3">
+                        <div className="w-9 h-9 rounded-full flex items-center justify-center text-white font-black text-sm shrink-0" style={{ backgroundColor: review.avatarColor }}>
+                          {review.initials}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="font-black text-primary text-xs leading-tight">{review.name}</p>
+                          <div className="flex gap-0.5 mt-0.5">
+                            {Array.from({ length: review.rating }).map((_, j) => <Star key={j} size={12} className="text-yellow-400 fill-yellow-400" />)}
+                          </div>
+                        </div>
+                        <p className="text-gray-400 text-[10px] shrink-0">{review.date}</p>
+                      </div>
+                      <p className="text-gray-600 text-xs leading-relaxed">"{review.text}"</p>
+                    </div>
+                  ))}
                 </div>
               </div>
 

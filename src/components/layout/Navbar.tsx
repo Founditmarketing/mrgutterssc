@@ -145,6 +145,7 @@ export default function Navbar() {
 
               <Link to="/gallery" className="hover:text-accent transition-colors py-4">Gallery</Link>
               <Link to="/blog" className="hover:text-accent transition-colors py-4">Blog</Link>
+              <Link to="/reviews" className="hover:text-accent transition-colors py-4">Reviews</Link>
               <Link to="/contact" className="hover:text-accent transition-colors py-4">Contact Us</Link>
             </div>
 
@@ -262,6 +263,7 @@ export default function Navbar() {
               { label: 'About Us', path: '/about' },
               { label: 'Gallery', path: '/gallery' },
               { label: 'Blog', path: '/blog' },
+              { label: 'Reviews', path: '/reviews' },
               { label: 'Contact Us', path: '/contact' },
             ].map((item) => (
               <Link
