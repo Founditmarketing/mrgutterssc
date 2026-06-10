@@ -21,7 +21,6 @@ export default function ContactSection() {
                   ))}
                 </div>
                 <span className="text-white font-black text-xl">5.0</span>
-                <span className="text-white/50 text-sm">· 76 reviews</span>
               </div>
             </div>
 

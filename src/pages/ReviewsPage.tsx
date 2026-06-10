@@ -51,27 +51,11 @@ export default function ReviewsPage() {
                   <Star key={i} size={24} className="text-yellow-400 fill-yellow-400" />
                 ))}
               </div>
-              <p className="text-gray-500 text-sm mt-1 font-semibold">76 Google Reviews</p>
-            </div>
-            <div className="hidden sm:block w-px h-20 bg-gray-200" />
-            <div className="flex flex-col gap-2 w-48">
-              {[5, 4, 3, 2, 1].map((star) => (
-                <div key={star} className="flex items-center gap-2">
-                  <span className="text-xs font-bold text-gray-500 w-3">{star}</span>
-                  <Star size={12} className="text-yellow-400 fill-yellow-400 shrink-0" />
-                  <div className="flex-1 h-2 bg-gray-100 rounded-full overflow-hidden">
-                    <div
-                      className="h-full bg-yellow-400 rounded-full"
-                      style={{ width: star === 5 ? '100%' : '0%' }}
-                    />
-                  </div>
-                </div>
-              ))}
             </div>
             <div className="hidden sm:block w-px h-20 bg-gray-200" />
             <div className="text-center">
               <a
-                href="https://www.google.com/maps/place/Mr+Gutter+SC"
+                href="https://www.google.com/search?q=mr+gutter+sc&rlz=1C5CHFA_enUS1003US1005&oq=mr&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MhAIARAuGMcBGLEDGNEDGIAEMgoIAhAuGLEDGIAEMgYIAxBFGDsyBggEEEUYPDIGCAUQRRg8MgYIBhBFGDwyBggHEEUYPdIBCDExMDFqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8#lrd=0x88f8bd02623270d3:0x7f1c09f2229c7761,1,,,,"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-accent text-primary font-black text-sm uppercase px-6 py-3 rounded btn-effect tracking-widest"
