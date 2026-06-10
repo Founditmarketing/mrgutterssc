@@ -133,7 +133,7 @@ export default function ServicesCarousel() {
         className="relative z-10"
         style={{ paddingLeft: 'max(1rem, calc((100vw - 1280px) / 2 + 1rem))' }}
       >
-        <div className="overflow-hidden" ref={emblaRef}>
+        <div className="overflow-hidden pb-6 -mb-6" ref={emblaRef}>
           <div className="flex -ml-4">
             {services.map((service, index) => (
               <div key={index} className="flex-[0_0_85%] min-w-0 sm:flex-[0_0_50%] lg:flex-[0_0_28.571%] pl-4">
