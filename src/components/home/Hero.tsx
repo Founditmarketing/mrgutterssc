@@ -122,6 +122,18 @@ export default function Hero() {
                 </div>
                 <input type="tel" placeholder="Phone Number" className="w-full backdrop-blur-md bg-white/10 border border-white/20 rounded p-3.5 text-white placeholder-white/40 text-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all font-medium" required />
                 <input type="text" placeholder="Zip Code" className="w-full backdrop-blur-md bg-white/10 border border-white/20 rounded p-3.5 text-white placeholder-white/40 text-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all font-medium" required />
+                <select defaultValue="" className="w-full backdrop-blur-md bg-white/10 border border-white/20 rounded p-3.5 text-white text-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all font-medium appearance-none [&>option]:text-gray-800 [&>option]:bg-white" required>
+                  <option value="" disabled className="text-gray-400">Select a Service</option>
+                  <option value="installation">Gutter Installation</option>
+                  <option value="guards">Gutter Guard Installation</option>
+                  <option value="cleaning">Gutter Cleaning</option>
+                  <option value="repair">Gutter Maintenance & Repair</option>
+                  <option value="seamless">Seamless Gutters</option>
+                  <option value="commercial">Commercial Gutters</option>
+                  <option value="fascia-soffit">Fascia & Soffit</option>
+                  <option value="christmas-lighting">Christmas Lighting</option>
+                  <option value="other">Not Sure / Other</option>
+                </select>
                 <button className="w-full bg-accent text-primary py-4 rounded font-black text-sm uppercase mt-4 btn-effect tracking-wide shadow-lg shadow-accent/20">Estimate My Project</button>
               </form>
           </div>

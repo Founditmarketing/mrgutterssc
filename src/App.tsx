@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import FAB from './components/layout/FAB';
@@ -18,7 +18,13 @@ import GalleryPage from './pages/GalleryPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 import LoadingScreen from './components/layout/LoadingScreen';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
 
 export default function App() {
   const [loadingMounted, setLoadingMounted] = useState(true);
@@ -34,6 +40,7 @@ export default function App() {
       {loadingMounted && <LoadingScreen onDone={handleLoadDone} />}
 
       <BrowserRouter>
+        <ScrollToTop />
         <div
           className="flex flex-col min-h-screen bg-slate-50 font-sans selection:bg-accent selection:text-primary md:pb-0 pb-20"
           style={{
