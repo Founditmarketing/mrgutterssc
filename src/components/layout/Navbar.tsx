@@ -90,7 +90,7 @@ export default function Navbar() {
               <Phone size={12} className="text-accent" />
               <span>(803) 360-8890</span>
             </a>
-            <a href="mailto:info@mrguttersc.com" className="flex items-center gap-1.5 hover:text-accent transition-colors">
+            <a href="mailto:thomas@mrguttersc.com" className="flex items-center gap-1.5 hover:text-accent transition-colors">
               <Mail size={12} className="text-accent" />
               <span>Email Us</span>
             </a>

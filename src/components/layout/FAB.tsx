@@ -57,7 +57,7 @@ export default function FAB() {
           <span className="text-[10px] font-bold uppercase tracking-wider text-accent drop-shadow-sm">Quote</span>
         </button>
         
-        <a href="mailto:info@mrguttersc.com" className="flex flex-col items-center justify-center text-primary group flex-1 pb-1">
+        <a href="mailto:thomas@mrguttersc.com" className="flex flex-col items-center justify-center text-primary group flex-1 pb-1">
           <div className="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center mb-1 group-active:bg-primary group-active:text-white transition-colors">
             <Mail size={18} />
           </div>

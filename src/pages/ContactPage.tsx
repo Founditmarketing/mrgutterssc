@@ -33,7 +33,7 @@ export default function ContactPage() {
                 <Mail size={24} className="text-accent" />
               </div>
               <h3 className="font-black text-primary text-sm uppercase tracking-widest mb-2">Email Us</h3>
-              <a href="mailto:info@mrguttersc.com" className="text-gray-600 hover:text-accent transition-colors font-semibold">info@mrguttersc.com</a>
+              <a href="mailto:thomas@mrguttersc.com" className="text-gray-600 hover:text-accent transition-colors font-semibold">thomas@mrguttersc.com</a>
               <p className="text-gray-400 text-xs mt-1">We reply within 24 hours</p>
             </div>
 
