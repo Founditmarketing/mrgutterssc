@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, Facebook, Instagram } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -49,7 +49,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin className="text-accent mt-1 mr-3 shrink-0" size={20} />
-                <span className="text-gray-400">123 Service Road, Suite B<br/>Columbia, SC 29201</span>
+                <span className="text-gray-400">1320 Main St Suite 300<br/>Columbia, SC 29201</span>
               </li>
               <li className="flex items-center">
                 <Phone className="text-accent mr-3 shrink-0" size={20} />
@@ -58,6 +58,13 @@ export default function Footer() {
               <li className="flex items-center">
                 <Mail className="text-accent mr-3 shrink-0" size={20} />
                 <a href="mailto:thomas@mrguttersc.com" className="text-gray-400 hover:text-white transition-colors">thomas@mrguttersc.com</a>
+              </li>
+              <li className="flex items-start">
+                <Clock className="text-accent mt-1 mr-3 shrink-0" size={20} />
+                <div className="text-gray-400 text-sm">
+                  <p><span className="text-white font-semibold">Mon – Fri:</span> 7AM – 7PM</p>
+                  <p>Sat – Sun: Closed</p>
+                </div>
               </li>
             </ul>
           </div>

@@ -25,7 +25,7 @@ export default function ContactPage() {
               </div>
               <h3 className="font-black text-primary text-sm uppercase tracking-widest mb-2">Call Us</h3>
               <a href="tel:8033608890" className="text-gray-600 hover:text-accent transition-colors font-semibold text-lg">(803) 360-8890</a>
-              <p className="text-gray-400 text-xs mt-1">Mon – Sat, 8am – 6pm</p>
+              <p className="text-gray-400 text-xs mt-1">Mon – Fri, 7AM – 7PM</p>
             </div>
 
             <div className="flex flex-col items-center text-center p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
@@ -51,8 +51,8 @@ export default function ContactPage() {
                 <Clock size={24} className="text-accent" />
               </div>
               <h3 className="font-black text-primary text-sm uppercase tracking-widest mb-2">Hours</h3>
-              <p className="text-gray-600 font-semibold">Mon – Fri: 8am – 6pm</p>
-              <p className="text-gray-600 font-semibold">Saturday: 9am – 4pm</p>
+              <p className="text-gray-600 font-semibold">Mon – Fri: 7AM – 7PM</p>
+              <p className="text-gray-400 text-sm">Saturday: Closed</p>
               <p className="text-gray-400 text-sm">Sunday: Closed</p>
             </div>
 
