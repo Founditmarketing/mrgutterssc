@@ -91,7 +91,23 @@ export default function ContactSection() {
                 <label className="block text-sm font-semibold text-gray-700 mb-1">Email (Optional)</label>
                 <input type="email" className="w-full border-b-2 border-gray-300 py-2 focus:outline-none focus:border-accent bg-transparent transition-colors" placeholder="you@example.com" />
               </div>
-              
+
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Service Needed</label>
+                <select defaultValue="" className="w-full border-b-2 border-gray-300 py-2 focus:outline-none focus:border-accent bg-transparent transition-colors text-gray-700 appearance-none">
+                  <option value="" disabled>Select a service...</option>
+                  <option value="installation">Gutter Installation</option>
+                  <option value="guards">Gutter Guard Installation</option>
+                  <option value="cleaning">Gutter Cleaning</option>
+                  <option value="repair">Gutter Maintenance & Repair</option>
+                  <option value="seamless">Seamless Gutters</option>
+                  <option value="commercial">Commercial Gutters</option>
+                  <option value="fascia-soffit">Fascia & Soffit</option>
+                  <option value="christmas-lighting">Christmas Lighting</option>
+                  <option value="other">Not Sure / Other</option>
+                </select>
+              </div>
+
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-1">How can we help?</label>
                 <textarea rows={4} className="w-full border-b-2 border-gray-300 py-2 focus:outline-none focus:border-accent bg-transparent transition-colors resize-none" placeholder="Describe your gutter needs..."></textarea>
