@@ -13,7 +13,9 @@ export default function FAB() {
       const footer = document.querySelector('footer');
       const nearFooter = footer ? window.scrollY + window.innerHeight >= footer.offsetTop - 40 : false;
       if (isHome) {
-        setIsVisible(window.scrollY > 300 && !nearFooter);
+        const hero = document.querySelector('section');
+        const heroBottom = hero ? hero.offsetTop + hero.offsetHeight : window.innerHeight;
+        setIsVisible(window.scrollY >= heroBottom - 80 && !nearFooter);
       } else {
         setIsVisible(!nearFooter);
       }
@@ -40,7 +42,7 @@ export default function FAB() {
       </div>
 
       {/* --- MOBILE STICKY FOOTER (Hidden on Desktop) --- */}
-      <div className={`md:hidden fixed bottom-0 left-0 w-full bg-white shadow-[0_-10px_20px_rgba(0,0,0,0.05)] border-t border-gray-100 flex items-center justify-around z-40 px-2 pt-3 pb-safe transition-transform duration-500`} style={{ paddingBottom: 'calc(12px + env(safe-area-inset-bottom))' }}>
+      <div className={`md:hidden fixed bottom-0 left-0 w-full bg-white shadow-[0_-10px_20px_rgba(0,0,0,0.05)] border-t border-gray-100 flex items-center justify-around z-40 px-2 pt-3 transition-transform duration-500 ${isVisible ? 'translate-y-0' : 'translate-y-full'}`} style={{ paddingBottom: 'calc(12px + env(safe-area-inset-bottom))' }}>
         <a href="tel:8033608890" className="flex flex-col items-center justify-center text-primary group flex-1 pb-1">
           <div className="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center mb-1 group-active:bg-primary group-active:text-white transition-colors">
             <Phone size={18} />
