@@ -83,6 +83,21 @@ export default function Footer() {
                 placeholder="Phone Number"
                 className="w-full bg-white/5 border border-white/10 rounded px-3 py-2.5 text-white placeholder-white/30 text-sm focus:outline-none focus:border-accent transition-colors"
               />
+              <select
+                defaultValue=""
+                className="w-full bg-white/5 border border-white/10 rounded px-3 py-2.5 text-white text-sm focus:outline-none focus:border-accent transition-colors appearance-none [&>option]:text-gray-800 [&>option]:bg-white"
+              >
+                <option value="" disabled className="text-white/30">Select a Service</option>
+                <option value="installation">Gutter Installation</option>
+                <option value="guards">Gutter Guard Installation</option>
+                <option value="cleaning">Gutter Cleaning</option>
+                <option value="repair">Gutter Maintenance & Repair</option>
+                <option value="seamless">Seamless Gutters</option>
+                <option value="commercial">Commercial Gutters</option>
+                <option value="fascia-soffit">Fascia & Soffit</option>
+                <option value="christmas-lighting">Christmas Lighting</option>
+                <option value="other">Not Sure / Other</option>
+              </select>
               <textarea
                 rows={3}
                 placeholder="How can we help?"

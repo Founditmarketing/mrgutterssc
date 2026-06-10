@@ -48,7 +48,7 @@ export default function Hero() {
   }, [current, goTo]);
 
   return (
-    <section className="relative min-h-[600px] flex items-center py-32 bg-primary overflow-hidden">
+    <section className="relative min-h-[600px] flex items-center py-20 bg-primary overflow-hidden">
 
       {/* Carousel Slides */}
       {slides.map((src, i) => (
