@@ -121,6 +121,7 @@ export default function FAB() {
                <option value="christmas-lighting">Christmas Lighting</option>
                <option value="other">Not Sure / Other</option>
              </select>
+             <textarea placeholder="Describe how we can help..." rows={2} className="w-full bg-gray-50 border border-gray-200 rounded px-4 py-3 text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none font-medium"></textarea>
              <button type="submit" className="w-full bg-primary text-white py-3 rounded font-black uppercase tracking-widest text-sm btn-effect mt-auto">
                Send Message
              </button>
