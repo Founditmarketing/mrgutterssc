@@ -74,66 +74,57 @@ export default function FAB() {
       />
 
       {/* Slide Out Window */}
-      <div className={`fixed top-0 right-0 h-full w-full sm:w-[450px] bg-white z-[101] shadow-[[-10px_0_30px_rgba(0,0,0,0.1)]] transition-transform duration-300 ease-out transform flex flex-col ${isSlideOutOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div className={`fixed top-0 right-0 h-[100dvh] w-full sm:w-[420px] bg-white z-[101] transition-transform duration-300 ease-out flex flex-col ${isSlideOutOpen ? 'translate-x-0' : 'translate-x-full'}`}>
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-100 bg-gray-50 flex-shrink-0">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 bg-gray-50 shrink-0">
            <div>
-             <h3 className="text-2xl font-black text-primary uppercase">How can we help?</h3>
-             <p className="text-xs text-gray-500 font-bold uppercase tracking-widest mt-1">Fast & Reliable Service</p>
+             <h3 className="text-xl font-black text-primary uppercase">How can we help?</h3>
+             <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-0.5">Fast & Reliable Service</p>
            </div>
            <button onClick={() => setIsSlideOutOpen(false)} className="p-2 bg-white rounded-full shadow-sm hover:bg-gray-100 transition-colors border border-gray-200">
-             <X size={20} className="text-gray-500" />
+             <X size={18} className="text-gray-500" />
            </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-8 bg-white">
+        <div className="flex-1 flex flex-col p-5 gap-4 min-h-0">
            {/* Call Action */}
-           <div className="bg-primary rounded-xl p-6 text-center text-white relative group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
-              <h4 className="text-accent font-black text-sm uppercase tracking-widest mb-2 relative z-10">Need immediate help?</h4>
-              <p className="text-gray-300 text-sm mb-5 relative z-10 font-medium">Our experts are standing by to take your call.</p>
-              <a href="tel:8033608890" className="relative z-10 inline-flex items-center justify-center gap-3 bg-accent text-primary w-full py-4 rounded font-black text-lg hover:bg-yellow-400 btn-effect uppercase tracking-wide">
-                <Phone size={20} fill="currentColor" />
+           <div className="bg-primary rounded-xl px-5 py-4 text-center text-white relative group shrink-0">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+              <h4 className="text-accent font-black text-xs uppercase tracking-widest mb-1 relative z-10">Need immediate help?</h4>
+              <p className="text-gray-300 text-xs mb-3 relative z-10 font-medium">Our experts are standing by to take your call.</p>
+              <a href="tel:8033608890" className="relative z-10 inline-flex items-center justify-center gap-2 bg-accent text-primary w-full py-3 rounded font-black text-base btn-effect uppercase tracking-wide">
+                <Phone size={18} fill="currentColor" />
                 (803) 360-8890
               </a>
            </div>
 
-           {/* Form Area */}
-           <div>
-             <h4 className="text-primary font-black text-xs uppercase tracking-widest mb-6 flex items-center justify-center gap-4 text-center opacity-70">
-               <span className="w-12 h-px bg-gray-300 inline-block"></span>
-               Or Request a Quote
-               <span className="w-12 h-px bg-gray-300 inline-block"></span>
-             </h4>
-             <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); setIsSlideOutOpen(false); }}>
-               <div>
-                 <input type="text" placeholder="Full Name" className="w-full bg-gray-50 border border-gray-200 rounded p-4 text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all font-medium" required />
-               </div>
-               <div>
-                 <input type="tel" placeholder="Phone Number" className="w-full bg-gray-50 border border-gray-200 rounded p-4 text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all font-medium" required />
-               </div>
-               <div>
-                 <select className="w-full bg-gray-50 border border-gray-200 rounded p-4 text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all font-medium appearance-none" required defaultValue="">
-                   <option value="" disabled>Select a Service</option>
-                   <option value="installation">Gutter Installation</option>
-                   <option value="guards">Gutter Guard Installation</option>
-                   <option value="cleaning">Gutter Cleaning</option>
-                   <option value="repair">Gutter Maintenance & Repair</option>
-                   <option value="seamless">Seamless Gutters</option>
-                   <option value="commercial">Commercial Gutters</option>
-                   <option value="fascia-soffit">Fascia & Soffit</option>
-                   <option value="christmas-lighting">Christmas Lighting</option>
-                   <option value="other">Not Sure / Other</option>
-                 </select>
-               </div>
-               <div>
-                 <textarea placeholder="Describe how we can help..." rows={4} className="w-full bg-gray-50 border border-gray-200 rounded p-4 text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none font-medium"></textarea>
-               </div>
-               <button type="submit" className="w-full bg-primary text-white py-4 rounded font-black uppercase tracking-widest text-sm btn-effect">
-                  Send Message
-               </button>
-             </form>
+           {/* Divider */}
+           <div className="flex items-center gap-3 shrink-0">
+             <span className="flex-1 h-px bg-gray-200"></span>
+             <span className="text-primary font-black text-[10px] uppercase tracking-widest opacity-60">Or Request a Quote</span>
+             <span className="flex-1 h-px bg-gray-200"></span>
            </div>
+
+           {/* Form */}
+           <form className="flex flex-col gap-3 flex-1" onSubmit={(e) => { e.preventDefault(); setIsSlideOutOpen(false); }}>
+             <input type="text" placeholder="Full Name" className="w-full bg-gray-50 border border-gray-200 rounded px-4 py-3 text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all font-medium" required />
+             <input type="tel" placeholder="Phone Number" className="w-full bg-gray-50 border border-gray-200 rounded px-4 py-3 text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all font-medium" required />
+             <select className="w-full bg-gray-50 border border-gray-200 rounded px-4 py-3 text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all font-medium appearance-none" required defaultValue="">
+               <option value="" disabled>Select a Service</option>
+               <option value="installation">Gutter Installation</option>
+               <option value="guards">Gutter Guard Installation</option>
+               <option value="cleaning">Gutter Cleaning</option>
+               <option value="repair">Gutter Maintenance & Repair</option>
+               <option value="seamless">Seamless Gutters</option>
+               <option value="commercial">Commercial Gutters</option>
+               <option value="fascia-soffit">Fascia & Soffit</option>
+               <option value="christmas-lighting">Christmas Lighting</option>
+               <option value="other">Not Sure / Other</option>
+             </select>
+             <button type="submit" className="w-full bg-primary text-white py-3 rounded font-black uppercase tracking-widest text-sm btn-effect mt-auto">
+               Send Message
+             </button>
+           </form>
         </div>
       </div>
     </>
