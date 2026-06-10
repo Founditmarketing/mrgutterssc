@@ -88,8 +88,8 @@ export default function FAB() {
 
         <div className="flex-1 overflow-y-auto p-6 flex flex-col gap-8 bg-white">
            {/* Call Action */}
-           <div className="bg-primary rounded-xl p-6 text-center text-white relative overflow-hidden group">
-              <div className="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+           <div className="bg-primary rounded-xl p-6 text-center text-white relative group">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700 pointer-events-none"></div>
               <h4 className="text-accent font-black text-sm uppercase tracking-widest mb-2 relative z-10">Need immediate help?</h4>
               <p className="text-gray-300 text-sm mb-5 relative z-10 font-medium">Our experts are standing by to take your call.</p>
               <a href="tel:8033608890" className="relative z-10 inline-flex items-center justify-center gap-3 bg-accent text-primary w-full py-4 rounded font-black text-lg hover:bg-yellow-400 btn-effect uppercase tracking-wide">
