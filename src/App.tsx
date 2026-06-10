@@ -20,6 +20,7 @@ import BlogPostPage from './pages/BlogPostPage';
 import ReviewsPage from './pages/ReviewsPage';
 import LoadingScreen from './components/layout/LoadingScreen';
 import { useState, useCallback, useEffect } from 'react';
+import { AppReadyContext } from './context/AppReadyContext';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -41,6 +42,7 @@ export default function App() {
       {loadingMounted && <LoadingScreen onDone={handleLoadDone} />}
 
       <BrowserRouter>
+        <AppReadyContext.Provider value={appVisible}>
         <ScrollToTop />
         <div
           className="flex flex-col min-h-screen bg-slate-50 font-sans selection:bg-accent selection:text-primary md:pb-0 pb-20"
@@ -69,6 +71,7 @@ export default function App() {
           <Footer />
           <FAB />
         </div>
+        </AppReadyContext.Provider>
       </BrowserRouter>
     </>
   );

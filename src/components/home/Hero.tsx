@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { useAppReady } from '../../context/AppReadyContext';
 
 const rotatingWords = ['Professionals.', 'Specialists.', 'Experts.'];
 
@@ -11,6 +12,7 @@ const slides = [
 ];
 
 export default function Hero() {
+  const appReady = useAppReady();
   const [current, setCurrent] = useState(0);
   const [prev, setPrev] = useState<number | null>(null);
   const [animating, setAnimating] = useState(false);
@@ -18,9 +20,10 @@ export default function Hero() {
   const [wordPhase, setWordPhase] = useState<'in' | 'out'>('in');
 
   useEffect(() => {
+    if (!appReady) return;
     const timer = setInterval(() => setWordPhase('out'), 2800);
     return () => clearInterval(timer);
-  }, []);
+  }, [appReady]);
 
   const handleWordAnimEnd = () => {
     if (wordPhase === 'out') {
@@ -41,11 +44,12 @@ export default function Hero() {
   }, [animating, current]);
 
   useEffect(() => {
+    if (!appReady) return;
     const timer = setInterval(() => {
       goTo((current + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, [current, goTo]);
+  }, [appReady, current, goTo]);
 
   return (
     <section className="relative min-h-[600px] flex items-center py-20 bg-primary overflow-hidden">
@@ -71,18 +75,18 @@ export default function Hero() {
 
         {/* Left Content Column */}
         <div className="w-full lg:w-3/5 text-white pr-0 lg:pr-12 md:max-w-2xl">
-          <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white font-bold text-[11px] uppercase tracking-widest py-1.5 px-4 rounded-full mb-5">
+          <div className={`inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white font-bold text-[11px] uppercase tracking-widest py-1.5 px-4 rounded-full mb-5 transition-all duration-700 ${appReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
             South Carolina's #1 Gutter Company
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-7xl font-black leading-tight drop-shadow-lg mb-6">
+          <h1 className={`text-4xl md:text-5xl lg:text-7xl font-black leading-tight drop-shadow-lg mb-6 transition-all duration-700 delay-150 ${appReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
             Columbia's Most <br/>Trusted Gutter{' '}
             <span
               key={`${wordIndex}-${wordPhase}`}
               className="text-accent inline-block"
               style={{
-                animation: wordPhase === 'out'
+                animation: !appReady ? 'none' : wordPhase === 'out'
                   ? 'wordExit 0.32s ease-in forwards'
                   : 'wordEnter 0.42s cubic-bezier(0.22, 1, 0.36, 1) forwards',
               }}
@@ -91,11 +95,11 @@ export default function Hero() {
               {rotatingWords[wordIndex]}
             </span>
           </h1>
-          <p className="text-lg opacity-90 max-w-lg mb-6 leading-relaxed">
+          <p className={`text-lg opacity-90 max-w-lg mb-6 leading-relaxed transition-all duration-700 delay-300 ${appReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             Quality gutter installation and guard systems built to last. Protected by our lifetime satisfaction guarantee.
           </p>
 
-          <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+          <div className={`flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 transition-all duration-700 delay-[450ms] ${appReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <Link to="/contact" className="bg-accent text-primary px-6 py-3 font-black text-sm uppercase rounded btn-effect text-center">
               Book Cleaning Now
             </Link>
@@ -106,7 +110,7 @@ export default function Hero() {
         </div>
 
         {/* Right Form Column (Visible on lg+) */}
-        <div className="relative z-20 hidden lg:flex w-full lg:w-2/5 md:pl-8 items-center justify-center">
+        <div className={`relative z-20 hidden lg:flex w-full lg:w-2/5 md:pl-8 items-center justify-center transition-all duration-700 delay-[500ms] ${appReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
           <div className="relative w-full p-8 rounded border border-white/25 backdrop-blur-sm">
               <div className="inline-flex items-center gap-2 bg-accent/10 text-accent font-black text-[10px] uppercase tracking-widest py-1.5 px-3 rounded-full mb-4 border border-accent/20">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
