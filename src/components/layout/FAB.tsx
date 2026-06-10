@@ -115,11 +115,15 @@ export default function FAB() {
                <div>
                  <select className="w-full bg-gray-50 border border-gray-200 rounded p-4 text-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all font-medium appearance-none" required defaultValue="">
                    <option value="" disabled>Select a Service</option>
+                   <option value="installation">Gutter Installation</option>
+                   <option value="guards">Gutter Guard Installation</option>
                    <option value="cleaning">Gutter Cleaning</option>
-                   <option value="repair">Gutter Repair</option>
-                   <option value="guards">Gutter Guards</option>
+                   <option value="repair">Gutter Maintenance & Repair</option>
                    <option value="seamless">Seamless Gutters</option>
-                   <option value="other">Other</option>
+                   <option value="commercial">Commercial Gutters</option>
+                   <option value="fascia-soffit">Fascia & Soffit</option>
+                   <option value="christmas-lighting">Christmas Lighting</option>
+                   <option value="other">Not Sure / Other</option>
                  </select>
                </div>
                <div>
